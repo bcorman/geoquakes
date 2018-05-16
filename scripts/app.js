@@ -19,41 +19,23 @@ initMaps();
 
 	function apiSuccess ( response ) {
 		var data = response.features;  
-		// var imageSm = {
-		// 	url: "images/earthquake.png",
-		// 	scaledSize: new google.maps.Size(6, 6),
-		// 	origin: new google.maps.Point(0,0), // origin
-  //   		anchor: new google.maps.Point(0, 0) // anchor
-		// }
-		// var imageMd = {
-		// 	url: "images/earthquake.png",
-		// 	scaledSize: new google.maps.Size(12, 12),
-		// 	origin: new google.maps.Point(0,0), // origin
-  //   		anchor: new google.maps.Point(0, 0) // anchor
-		// }
-		// var imageLg = {
-		// 	url: "images/earthquake.png",
-		// 	scaledSize: new google.maps.Size(25, 25),
-		// 	origin: new google.maps.Point(0,0), // origin
-  //   		anchor: new google.maps.Point(0, 0) // anchor
-		// }
 
-	function Icon (size) {
-		this.url = "images/earthquake.png";
-		this.scaledSize = new google.maps.Size(size, size);
-		this.origin = new google.maps.Point(0,0);
-		anchor: new google.maps.Point(0, 0);
-	}
+		function Icon (size) {
+			this.url = "images/earthquake.png";
+			this.scaledSize = new google.maps.Size(size, size);
+			this.origin = new google.maps.Point(0,0);
+			anchor: new google.maps.Point(0, 0);
+		}
 
-	function getSize (magnitude) {
-		if (magnitude > 5) {
-			return 25;
+		function getSize (magnitude) {
+			if (magnitude > 5) {
+				return 25;
+			}
+			else if (magnitude > 3.5) {
+				return 15;
+			}
+			else {return 10}
 		}
-		else if (magnitude > 3.5) {
-			return 15;
-		}
-		else {return 10}
-	}
 
 		for (i = 0; i < data.length; i++) {
 		  	var dataI = data[i];
@@ -87,4 +69,24 @@ initMaps();
         })
 	}
 
+	arrLinks = [
+		"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
+		"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+		"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+		"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson"
+	]
+
+	$('.dropdown-menu').on('click', 'a', function (e) {
+		e.preventDefault();
+		$(this).
+	})
+
 });
+
+
+
+
+
+
+
+
